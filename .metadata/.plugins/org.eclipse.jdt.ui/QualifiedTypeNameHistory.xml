@@ -1,2 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="dao.BankDao"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="dao.BankInfoDao"/>
+    <fullyQualifiedTypeName name="dao.BankInfoDaoCollectionImpl"/>
+    <fullyQualifiedTypeName name="service.BankInfoService"/>
+    <fullyQualifiedTypeName name="service.BankInfoServiceImpl"/>
+    <fullyQualifiedTypeName name="model.BankInfoPojo"/>
+    <fullyQualifiedTypeName name="exception.EmptyBankInfoException"/>
+    <fullyQualifiedTypeName name="dao.UserDetailsDao"/>
+    <fullyQualifiedTypeName name="service.UserDetailsService"/>
+    <fullyQualifiedTypeName name="service.UserDetailsServiceImpl"/>
+    <fullyQualifiedTypeName name="model.UserDetailsPojo"/>
+    <fullyQualifiedTypeName name="dao.UserDetailsDaoCollectionImpl"/>
+    <fullyQualifiedTypeName name="model.UserPojo"/>
+    <fullyQualifiedTypeName name="dao.UserDao"/>
+    <fullyQualifiedTypeName name="dao.UserDaoCollectionImpl"/>
+    <fullyQualifiedTypeName name="dao.AccountDao"/>
+    <fullyQualifiedTypeName name="dao.AccountDaoCollectionImpl"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="dao.UserDaoDatabaseImpl"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="dao.AccountDaoDatabaseImpl"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.DatabaseMetaData"/>
+    <fullyQualifiedTypeName name="model.AccountPojo"/>
+</qualifiedTypeNameHistroy>
