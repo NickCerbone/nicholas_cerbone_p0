@@ -2,6 +2,7 @@ package service;
 
 import dao.AccountDao;
 import dao.AccountDaoDatabaseImpl;
+import exceptions.FundsException;
 import model.AccountPojo;
 
 public class AccountServiceImpl implements AccountService {
@@ -18,7 +19,7 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public AccountPojo withdrawFunds(AccountPojo accountPojo, int userId) {
+	public AccountPojo withdrawFunds(AccountPojo accountPojo, int userId) throws FundsException {
 		return accountDao.withdrawFunds(accountPojo, userId);
 	}
 

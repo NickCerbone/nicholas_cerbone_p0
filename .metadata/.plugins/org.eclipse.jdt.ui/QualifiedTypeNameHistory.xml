@@ -28,5 +28,6 @@
     <fullyQualifiedTypeName name="dao.AccountDaoDatabaseImpl"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.sql.DatabaseMetaData"/>
+    <fullyQualifiedTypeName name="exceptions.RegistrationException"/>
     <fullyQualifiedTypeName name="model.AccountPojo"/>
 </qualifiedTypeNameHistroy>

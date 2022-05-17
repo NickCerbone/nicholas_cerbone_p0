@@ -2,6 +2,7 @@ package presentation;
 
 import java.util.Scanner;
 
+import exceptions.FundsException;
 import exceptions.RegistrationException;
 import model.AccountPojo;
 import model.UserPojo;
@@ -75,7 +76,12 @@ public class BankingApplication {
 						System.out.println("*****************************");
 						System.out.println("Please enter withdraw amount :");
 						accountPojo.setWithdrawAmount(scan.nextDouble());
-						accountService.withdrawFunds(accountPojo, userLoginPojo.getUserId());
+						try {
+							accountService.withdrawFunds(accountPojo, userLoginPojo.getUserId());
+						} catch (FundsException e) {
+							System.out.println(e.getMessage());
+							break;
+						}
 						System.out.println("*****************************");
 						System.out.println("withdraw made successfully...");
 						System.out.println("*****************************");
