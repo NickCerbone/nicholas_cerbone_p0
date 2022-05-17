@@ -10,30 +10,13 @@ public class AccountDaoDatabaseImpl implements AccountDao {
 	
 	AccountPojo accountPojo;
 	
-	public int getDbUserId(String getPassword) {
-		Connection conn = null;
-		int accountPojo = 0;
-		try {
-			conn = DBUtil.makeConnection();
-			Statement stmt = conn.createStatement();
-			String query = "SELECT user_id FROM user_details WHERE password='"+getPassword+"'";
-			ResultSet resultSet = stmt.executeQuery(query);
-			if(resultSet.next()) {
-			accountPojo = resultSet.getInt(1);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return accountPojo;
-	}
-
 	@Override
-	public AccountPojo depositFunds(int userId, double depositAmount) {
+	public AccountPojo depositFunds(AccountPojo accountPojo, int userId) {
 		Connection conn;
 		try {
 		conn = DBUtil.makeConnection();
 		Statement stmt = conn.createStatement();
-		String query = "UPDATE accnt_details SET balance=balance+'"+depositAmount+"' WHERE user_id='"+userId+"' ";
+		String query = "UPDATE accnt_details SET balance=balance+'"+accountPojo.getDepositAmount()+"' WHERE user_id='"+userId+"' ";
 		int rowsAffected = stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -42,12 +25,12 @@ public class AccountDaoDatabaseImpl implements AccountDao {
 	}
 
 	@Override
-	public AccountPojo withdrawFunds(int userId, double withdrawAmount) {
+	public AccountPojo withdrawFunds(AccountPojo accountPojo, int userId) {
 		Connection conn;
 		try {
 		conn = DBUtil.makeConnection();
 		Statement stmt = conn.createStatement();
-		String query = "UPDATE accnt_details SET balance=balance-'"+withdrawAmount+"' WHERE user_id='"+userId+"' ";
+		String query = "UPDATE accnt_details SET balance=balance-'"+accountPojo.getWithdrawAmount()+"' WHERE user_id='"+userId+"' ";
 		int rowsAffected = stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			e.printStackTrace();

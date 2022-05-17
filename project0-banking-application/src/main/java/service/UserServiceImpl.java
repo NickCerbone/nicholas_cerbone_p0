@@ -2,15 +2,14 @@ package service;
 
 import dao.UserDao;
 import dao.UserDaoDatabaseImpl;
+import exceptions.RegistrationException;
 import model.UserPojo;
 
 public class UserServiceImpl implements UserService {
-	
-	// interface reference
+
 	UserDao userDao;
 
 	public UserServiceImpl() {
-		//userDao = new UserDaoCollectionImpl();
 		userDao = new UserDaoDatabaseImpl();
 	}
 
@@ -21,7 +20,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserPojo validateUser(UserPojo userPojo) {
+	public UserPojo validateUser(UserPojo userPojo) throws RegistrationException {
 		return userDao.validateUser(userPojo);
+
+	}
+
+	@Override
+	public int getDbUserId(String getPassword) {
+		return userDao.getDbUserId(getPassword);
 	}
 }

@@ -1,10 +1,11 @@
 package dao;
 
-import java.util.List;
+import exceptions.RegistrationException;
 import model.UserPojo;
 
 public interface UserDao {
-	UserPojo register(UserPojo userPojo); // throws ApplicationException;
-	UserPojo validateUser(UserPojo userPojo); //throws ApplicationException;
+	UserPojo register(UserPojo userPojo); 
+	UserPojo validateUser(UserPojo userPojo) throws RegistrationException; 
+	public int getDbUserId(String getPassword);
 }
 

@@ -4,11 +4,10 @@ import model.AccountPojo;
 
 public interface AccountService {
 
-	AccountPojo depositFunds(int userId, double depositAmount); // Update
+	AccountPojo depositFunds(AccountPojo accountPojo, int userId); // Update
 	
-	AccountPojo withdrawFunds(int userId, double withdrawAmount); // Update
+	AccountPojo withdrawFunds(AccountPojo accountPojo, int userId); // Update
 
 	double viewBalance(int userId); // Read
 
-	public int getDbUserId(String getPassword);
 }

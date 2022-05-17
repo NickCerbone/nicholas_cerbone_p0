@@ -4,8 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import model.AccountPojo;
+import exceptions.RegistrationException;
 import model.UserPojo;
 
 public class UserDaoDatabaseImpl implements UserDao {
@@ -16,28 +15,19 @@ public class UserDaoDatabaseImpl implements UserDao {
 		try {
 			conn = DBUtil.makeConnection();
 			Statement stmt = conn.createStatement();
-			String query = "INSERT INTO user_details(password) VALUES ('" + userPojo.getPassword() + "'); INSERT INTO accnt_details (user_id) SELECT user_id FROM user_details WHERE password='" + userPojo.getPassword() +"'";
-			
-			// clean this up
-			// exceptions 
-			// progate throws
-			// junit testing mockito
-			stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
-			ResultSet rs = stmt.getGeneratedKeys();
-			while (rs.next()) {
-				AccountPojo accountPojo = new AccountPojo(rs.getInt(1), rs.getInt(4), rs.getDouble(5));
-			System.out.println(accountPojo);
-			}
-			}
-			catch (SQLException e) {
+			String query = "INSERT INTO user_details(password) VALUES ('" + userPojo.getPassword()
+					+ "'); INSERT INTO accnt_details (user_id) SELECT user_id FROM user_details WHERE password='"
+					+ userPojo.getPassword() + "'";
+			stmt.executeUpdate(query);
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return userPojo;
-		
+
 	}
 
 	@Override
-	public UserPojo validateUser(UserPojo userPojo) {
+	public UserPojo validateUser(UserPojo userPojo) throws RegistrationException {
 		Connection conn;
 
 		try {
@@ -47,7 +37,26 @@ public class UserDaoDatabaseImpl implements UserDao {
 					+ userPojo.getPassword() + "'";
 			ResultSet resultSet = stmt.executeQuery(query);
 			if (resultSet.next()) {
-				System.out.println("user validated successfully");
+				System.out.println("Logging in ...");
+			} else {
+				userPojo = null;
+			}
+		} catch (SQLException e) {
+			throw new RegistrationException();
+		}
+		return userPojo;
+	}
+	
+	public int getDbUserId(String getPassword) {
+		Connection conn = null;
+		int userPojo = 0;
+		try {
+			conn = DBUtil.makeConnection();
+			Statement stmt = conn.createStatement();
+			String query = "SELECT user_id FROM user_details WHERE password='"+getPassword+"'";
+			ResultSet resultSet = stmt.executeQuery(query);
+			if(resultSet.next()) {
+			userPojo = resultSet.getInt(1);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
