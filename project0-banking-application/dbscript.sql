@@ -6,10 +6,9 @@ create table user_details (
 create table accnt_details (
 				accnt_id INT GENERATED ALWAYS AS IDENTITY,
 				user_id INT, 
-				balance DOUBLE PRECISION NOT NULL, 
+				balance DOUBLE PRECISION NOT NULL CHECK (balance > 0), 
 				PRIMARY KEY(accnt_id)
 				CONSTRAINT fk_user
 					FOREIGN KEY(user_id)
 						REFRENCES user_details(user_id));
 						
-INSERT INTO user_details(password) VALUES ('"+userPojo.getPassword()+"')";

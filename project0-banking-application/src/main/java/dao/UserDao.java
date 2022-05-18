@@ -1,11 +1,12 @@
 package dao;
 
-import exceptions.RegistrationException;
+import exceptions.SystemException;
 import model.UserPojo;
 
 public interface UserDao {
-	UserPojo register(UserPojo userPojo); 
-	UserPojo validateUser(UserPojo userPojo) throws RegistrationException; 
-	public int getDbUserId(String getPassword);
-}
+	UserPojo register(UserPojo userPojo) throws SystemException;
 
+	UserPojo validateUser(UserPojo userPojo) throws SystemException;
+
+	int getDbUserId(String getPassword) throws SystemException;
+}

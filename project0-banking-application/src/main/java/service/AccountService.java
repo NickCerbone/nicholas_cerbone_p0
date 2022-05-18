@@ -1,14 +1,15 @@
 package service;
 
 import exceptions.FundsException;
+import exceptions.SystemException;
 import model.AccountPojo;
 
 public interface AccountService {
 
-	AccountPojo depositFunds(AccountPojo accountPojo, int userId); // Update
-	
-	AccountPojo withdrawFunds(AccountPojo accountPojo, int userId) throws FundsException; // Update
+	AccountPojo depositFunds(AccountPojo accountPojo, int userId) throws SystemException; // Update
 
-	double viewBalance(int userId); // Read
+	AccountPojo withdrawFunds(AccountPojo accountPojo, int userId) throws FundsException, SystemException; // Update
+
+	double viewBalance(int userId) throws SystemException;; // Read
 
 }

@@ -3,7 +3,7 @@ package presentation;
 import java.util.Scanner;
 
 import exceptions.FundsException;
-import exceptions.RegistrationException;
+import exceptions.SystemException;
 import model.AccountPojo;
 import model.UserPojo;
 import service.AccountService;
@@ -49,7 +49,7 @@ public class BankingApplication {
 						System.out.println("login failed");
 						break;
 					}
-				} catch (RegistrationException e) {
+				} catch (SystemException e) {
 					System.out.println(e.getMessage());
 					break;
 				}
@@ -69,16 +69,24 @@ public class BankingApplication {
 					switch (option2) {
 					case 1:
 						System.out.println("your current balance is: ");
-						System.out.println("$" + accountService.viewBalance(userLoginPojo.getUserId()));
+						try {
+							System.out.println("$" + accountService.viewBalance(userLoginPojo.getUserId()));
+						} catch (SystemException e1) {
+							System.out.println(e1.getMessage());
+							break;
+						}
 						System.out.println("*****************************");
 						break;
-					case 2: // withdraw
+					case 2:
 						System.out.println("*****************************");
 						System.out.println("Please enter withdraw amount :");
 						accountPojo.setWithdrawAmount(scan.nextDouble());
 						try {
 							accountService.withdrawFunds(accountPojo, userLoginPojo.getUserId());
-						} catch (FundsException e) {
+						} catch (FundsException fe) {
+							System.out.println(fe.getMessage());
+							break;
+						} catch (SystemException e) {
 							System.out.println(e.getMessage());
 							break;
 						}
@@ -86,15 +94,19 @@ public class BankingApplication {
 						System.out.println("withdraw made successfully...");
 						System.out.println("*****************************");
 						break;
-					case 3: // deposit
+					case 3:
 						System.out.println("*****************************");
 						System.out.println("Please enter deposit amount :");
 						accountPojo.setDepositAmount(scan.nextDouble());
-						accountService.depositFunds(accountPojo, userLoginPojo.getUserId());
+						try {
+							accountService.depositFunds(accountPojo, userLoginPojo.getUserId());
+						} catch (SystemException e) {
+							System.out.println(e.getMessage());
+							break;
+						}
 						System.out.println("*****************************");
 						System.out.println("deposit made successfully...");
 						System.out.println("*****************************");
-						System.out.println(accountPojo.toString());
 						break;
 					case 4:
 						System.out.println("*******************************************************************");
@@ -109,13 +121,23 @@ public class BankingApplication {
 				UserPojo newUserPojo = new UserPojo();
 				System.out.println("Enter new user password:");
 				newUserPojo.setPassword(scan.nextLine());
-				userService.register(newUserPojo);
+				try {
+					userService.register(newUserPojo);
+				} catch (SystemException e) {
+					System.out.println(e.getMessage());
+					break;
+				}
 				System.out.println("**********************************");
 				System.out.println("User registered successfully!!");
-				System.out.println("user id: " + userService.getDbUserId(newUserPojo.getPassword()));
-				accountPojo.setUserId(userService.getDbUserId(newUserPojo.getPassword()));
+				try {
+					System.out.println("user id: " + userService.getDbUserId(newUserPojo.getPassword()));
+					accountPojo.setUserId(userService.getDbUserId(newUserPojo.getPassword()));
+				} catch (SystemException e) {
+					System.out.println(e.getMessage());
+					break;
+				}
+
 				System.out.println("**********************************");
-				System.out.println(accountPojo.toString());
 				break;
 			case 3:
 				System.out.println("*******************************************************************");

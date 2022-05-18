@@ -6,5 +6,5 @@ public class FundsException extends Exception {
 	public String getMessage() {
 		return "insufficent funds";
 	}
-	
+
 }

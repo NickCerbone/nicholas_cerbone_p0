@@ -15,8 +15,6 @@
     <fullyQualifiedTypeName name="service.UserDetailsServiceImpl"/>
     <fullyQualifiedTypeName name="model.UserDetailsPojo"/>
     <fullyQualifiedTypeName name="dao.UserDetailsDaoCollectionImpl"/>
-    <fullyQualifiedTypeName name="model.UserPojo"/>
-    <fullyQualifiedTypeName name="dao.UserDao"/>
     <fullyQualifiedTypeName name="dao.UserDaoCollectionImpl"/>
     <fullyQualifiedTypeName name="dao.AccountDao"/>
     <fullyQualifiedTypeName name="dao.AccountDaoCollectionImpl"/>
@@ -30,4 +28,23 @@
     <fullyQualifiedTypeName name="java.sql.DatabaseMetaData"/>
     <fullyQualifiedTypeName name="exceptions.RegistrationException"/>
     <fullyQualifiedTypeName name="model.AccountPojo"/>
+    <fullyQualifiedTypeName name="exceptions.FundsException"/>
+    <fullyQualifiedTypeName name="service.AccountService"/>
+    <fullyQualifiedTypeName name="org.mockito.Mock"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.extension.ExtendWith"/>
+    <fullyQualifiedTypeName name="dao.UserDao"/>
+    <fullyQualifiedTypeName name="model.UserPojo"/>
+    <fullyQualifiedTypeName name="exceptions.SystemException"/>
+    <fullyQualifiedTypeName name="service.UserService"/>
+    <fullyQualifiedTypeName name="service.UserServiceImpl"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.params.ParameterizedTest"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.AfterEach"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.AfterAll"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.TestInstance"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.MethodOrderer.OrderAnnotation"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.TestMethodOrder"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.Order"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeAll"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.TestInstance.Lifecycle"/>
 </qualifiedTypeNameHistroy>

@@ -7,7 +7,7 @@ public class AccountPojo {
 	private double balance;
 	private double depositAmount;
 	private double withdrawAmount;
-	
+
 	public AccountPojo() {
 	}
 
@@ -22,7 +22,7 @@ public class AccountPojo {
 	}
 
 	public AccountPojo(double balance) {
-		}
+	}
 
 	public int getAccntId() {
 		return accntId;

@@ -1,11 +1,13 @@
 package service;
 
-import exceptions.RegistrationException;
+import exceptions.SystemException;
 import model.UserPojo;
 
 public interface UserService {
 
-	UserPojo register(UserPojo userPojo); // throws ApplicationException;
-	UserPojo validateUser(UserPojo userPojo) throws RegistrationException;
-	public int getDbUserId(String getPassword);
+	UserPojo register(UserPojo userPojo) throws SystemException;
+
+	UserPojo validateUser(UserPojo userPojo) throws SystemException;
+
+	public int getDbUserId(String getPassword) throws SystemException;
 }

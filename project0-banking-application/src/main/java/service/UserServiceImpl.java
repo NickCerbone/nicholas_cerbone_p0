@@ -2,7 +2,7 @@ package service;
 
 import dao.UserDao;
 import dao.UserDaoDatabaseImpl;
-import exceptions.RegistrationException;
+import exceptions.SystemException;
 import model.UserPojo;
 
 public class UserServiceImpl implements UserService {
@@ -14,19 +14,19 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserPojo register(UserPojo userPojo) {
+	public UserPojo register(UserPojo userPojo) throws SystemException {
 		return userDao.register(userPojo);
 
 	}
 
 	@Override
-	public UserPojo validateUser(UserPojo userPojo) throws RegistrationException {
+	public UserPojo validateUser(UserPojo userPojo) throws SystemException {
 		return userDao.validateUser(userPojo);
 
 	}
 
 	@Override
-	public int getDbUserId(String getPassword) {
+	public int getDbUserId(String getPassword) throws SystemException {
 		return userDao.getDbUserId(getPassword);
 	}
 }

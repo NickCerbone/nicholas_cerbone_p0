@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBUtil {
-	
+
 	static Connection conn;
-	
+
 	static {
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -15,7 +15,7 @@ public class DBUtil {
 			e.printStackTrace();
 		}
 	}
-		
+
 	static Connection makeConnection() throws SQLException {
 		String connectionUrl = "jdbc:postgresql://localhost:5432/bank";
 		String userName = "postgres";
